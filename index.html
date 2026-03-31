@@ -230,6 +230,10 @@
             animation-delay: 0.16s;
         }
 
+        .content-card:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
         .section-title {
             font-family: "Changa", sans-serif;
             font-size: 22px;
@@ -252,6 +256,44 @@
         .summary-text {
             color: var(--text-700);
             font-size: 15.5px;
+        }
+
+        .passion-card {
+            background: linear-gradient(145deg, #fffaf0 0%, #fff4df 100%);
+            border: 1px solid rgba(183, 132, 45, 0.35);
+            box-shadow: 0 10px 22px rgba(183, 132, 45, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .passion-card::after {
+            content: "";
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            left: -60px;
+            top: -50px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(183, 132, 45, 0.18) 0%, rgba(183, 132, 45, 0) 70%);
+            pointer-events: none;
+        }
+
+        .passion-card .summary-text {
+            position: relative;
+            padding-right: 28px;
+            color: #3f4953;
+            font-weight: 600;
+        }
+
+        .passion-card .summary-text::before {
+            content: "\201D";
+            position: absolute;
+            right: 0;
+            top: -6px;
+            font-size: 44px;
+            line-height: 1;
+            color: rgba(183, 132, 45, 0.95);
+            font-family: "Changa", sans-serif;
         }
 
         .highlights {
@@ -405,6 +447,17 @@
             margin-right: 7px;
         }
 
+        html[dir="ltr"] .passion-card .summary-text {
+            padding-right: 0;
+            padding-left: 28px;
+        }
+
+        html[dir="ltr"] .passion-card .summary-text::before {
+            right: auto;
+            left: 0;
+            content: "\201C";
+        }
+
         @keyframes pageIn {
             from {
                 opacity: 0;
@@ -459,6 +512,10 @@
                 padding: 16px 14px;
             }
 
+            .passion-card .summary-text {
+                padding-right: 24px;
+            }
+
             .action-buttons {
                 left: 12px;
                 bottom: 12px;
@@ -475,6 +532,11 @@
                 left: auto;
                 right: 12px;
             }
+
+            html[dir="ltr"] .passion-card .summary-text {
+                padding-right: 0;
+                padding-left: 24px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -488,7 +550,7 @@
 
         @page {
             size: A4;
-            margin: 11mm;
+            margin: 0;
         }
 
         html, body {
@@ -497,9 +559,18 @@
         }
 
         @media print {
+            html,
             body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
                 padding: 0;
-                background: linear-gradient(135deg, #e9f0f4 0%, #f7f5ee 100%) !important;
+            }
+
+            body {
+                background: #ffffff !important;
+                font-size: 14px;
+                line-height: 1.55;
             }
 
             body::before,
@@ -508,22 +579,94 @@
             }
 
             .resume {
-                width: 100%;
+                width: 210mm;
+                min-height: 297mm;
                 margin: 0;
                 border-radius: 0;
                 box-shadow: none;
-                border: 1px solid #b7c6d0;
-                grid-template-columns: 300px 1fr;
+                border: none;
+                grid-template-columns: 72mm 1fr;
             }
 
             .sidebar {
                 background: linear-gradient(160deg, var(--ink-900) 0%, var(--ink-800) 52%, var(--ink-700) 100%) !important;
                 color: #f4fbff !important;
+                padding: 24px 20px;
             }
 
             .content-card {
                 box-shadow: none;
                 border: 1px solid #c7d4dc;
+                padding: 15px 15px;
+            }
+
+            .main-content {
+                padding: 22px 18px 18px;
+                gap: 11px;
+            }
+
+            .profile-header h1 {
+                font-size: 24px;
+            }
+
+            .profile-header p {
+                font-size: 13px;
+            }
+
+            .profile-tag {
+                font-size: 11px;
+                padding: 3px 10px;
+                margin-bottom: 6px;
+            }
+
+            .panel {
+                margin-top: 16px;
+            }
+
+            .panel-title {
+                font-size: 15px;
+                margin-bottom: 8px;
+            }
+
+            .skills-list li,
+            .contact-list li,
+            .license-list li,
+            .languages-list li {
+                font-size: 12px;
+                line-height: 1.45;
+                margin-bottom: 6px;
+            }
+
+            .section-title {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .summary-text,
+            .experience-list li,
+            .education-text {
+                font-size: 13px;
+                line-height: 1.48;
+            }
+
+            .experience-item h3 {
+                font-size: 19px;
+            }
+
+            .company-name {
+                margin-bottom: 8px;
+                font-size: 12px;
+                padding: 3px 9px;
+            }
+
+            .highlights {
+                margin-top: 8px;
+                gap: 6px;
+            }
+
+            .chip {
+                font-size: 11px;
+                padding: 4px 8px;
             }
 
             .content-card,
@@ -587,6 +730,13 @@
         </aside>
 
         <main class="main-content">
+            <section class="content-card passion-card">
+                <h2 class="section-title" id="passion-title">شغف الإشراف والدور التربوي</h2>
+                <p class="summary-text" id="passion-text">
+                    أؤمن بأن الإشراف الفعّال هو مزيج بين الحزم التنظيمي والاحتواء التربوي؛ لذا ينصبّ شغفي على بناء بيئة عمل منضبطة تُلهم الكوادر وتنمي فيهم روح المسؤولية والأمانة، محولاً المتابعة الإدارية من مجرد رقابة إلى أداة للتطوير المستمر وصناعة الأثر.
+                </p>
+            </section>
+
             <section class="content-card">
                 <h2 class="section-title" id="summary-title">الملخص الشخصي</h2>
                 <p class="summary-text" id="summary-text">
@@ -660,6 +810,8 @@
                     chip1: "خبرة ميدانية 7+ سنوات",
                     chip2: "التعامل مع الجهات الحكومية",
                     chip3: "سرعة إنجاز المعاملات",
+                    passionTitle: "شغف الإشراف والدور التربوي",
+                    passionText: "أؤمن بأن الإشراف الفعّال هو مزيج بين الحزم التنظيمي والاحتواء التربوي؛ لذا ينصبّ شغفي على بناء بيئة عمل منضبطة تُلهم الكوادر وتنمي فيهم روح المسؤولية والأمانة، محولاً المتابعة الإدارية من مجرد رقابة إلى أداة للتطوير المستمر وصناعة الأثر.",
                     experienceTitle: "الخبرات المهنية",
                     jobTitle: "معقب إداري",
                     companyName: "شركة العمودي | 7 سنوات",
@@ -701,6 +853,8 @@
                     chip1: "7+ Years Field Experience",
                     chip2: "Government Liaison Expertise",
                     chip3: "Fast Transaction Completion",
+                    passionTitle: "Passion for Supervision and Educational Leadership",
+                    passionText: "I believe effective supervision is a blend of organizational firmness and educational support; therefore, my passion is focused on building a disciplined work environment that inspires teams and develops in them a spirit of responsibility and integrity, transforming administrative follow-up from mere oversight into a tool for continuous development and lasting impact.",
                     experienceTitle: "Professional Experience",
                     jobTitle: "Administrative Liaison Officer",
                     companyName: "Al-Amoudi Company | 7 Years",
@@ -743,6 +897,8 @@
                 chip1: document.getElementById("chip-1"),
                 chip2: document.getElementById("chip-2"),
                 chip3: document.getElementById("chip-3"),
+                passionTitle: document.getElementById("passion-title"),
+                passionText: document.getElementById("passion-text"),
                 experienceTitle: document.getElementById("experience-title"),
                 jobTitle: document.getElementById("job-title"),
                 companyName: document.getElementById("company-name"),
@@ -793,6 +949,8 @@
                 elements.chip1.textContent = t.chip1;
                 elements.chip2.textContent = t.chip2;
                 elements.chip3.textContent = t.chip3;
+                elements.passionTitle.textContent = t.passionTitle;
+                elements.passionText.textContent = t.passionText;
                 elements.experienceTitle.textContent = t.experienceTitle;
                 elements.jobTitle.textContent = t.jobTitle;
                 elements.companyName.textContent = t.companyName;
