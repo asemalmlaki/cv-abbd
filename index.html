@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية | عبدالله سعيد المالكي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Changa:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --ink-900: #0f2a3d;
+            --ink-800: #17384f;
+            --ink-700: #295069;
+            --teal-500: #2a8078;
+            --gold-500: #b7842d;
+            --paper: #fffefb;
+            --surface: #f9f6ee;
+            --line: #d6e1e7;
+            --text-900: #1f2b36;
+            --text-700: #4a5b6b;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Cairo", sans-serif;
+            line-height: 1.75;
+            color: var(--text-900);
+            background:
+                radial-gradient(circle at 85% 10%, rgba(42, 128, 120, 0.18), transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(183, 132, 45, 0.16), transparent 38%),
+                linear-gradient(135deg, #e9f0f4 0%, #f7f5ee 100%);
+            min-height: 100vh;
+            padding: 32px 18px 46px;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            z-index: -1;
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+
+        body::before {
+            width: 280px;
+            height: 280px;
+            top: -80px;
+            right: -40px;
+            background: radial-gradient(circle at 30% 30%, rgba(42, 128, 120, 0.4), transparent 70%);
+        }
+
+        body::after {
+            width: 320px;
+            height: 320px;
+            bottom: -120px;
+            left: -60px;
+            background: radial-gradient(circle at 40% 40%, rgba(183, 132, 45, 0.35), transparent 70%);
+        }
+
+        .resume {
+            width: min(1120px, 100%);
+            margin: 0 auto;
+            background: var(--paper);
+            border-radius: 30px;
+            border: 1px solid rgba(15, 42, 61, 0.14);
+            box-shadow: 0 28px 70px rgba(22, 45, 62, 0.18);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 335px 1fr;
+            animation: pageIn 0.8s ease both;
+        }
+
+        .sidebar {
+            background: linear-gradient(160deg, var(--ink-900) 0%, var(--ink-800) 52%, var(--ink-700) 100%);
+            color: #f4fbff;
+            padding: 36px 28px;
+            position: relative;
+        }
+
+        .sidebar::after {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            left: -75px;
+            bottom: -60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.2), transparent 68%);
+            pointer-events: none;
+        }
+
+        .profile-header {
+            margin-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+            padding-bottom: 16px;
+        }
+
+        .profile-tag {
+            display: inline-block;
+            font-family: "Changa", sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.4px;
+            background: linear-gradient(120deg, rgba(183, 132, 45, 0.9), rgba(211, 171, 96, 0.95));
+            color: #152636;
+            border-radius: 999px;
+            padding: 4px 12px;
+            margin-bottom: 10px;
+        }
+
+        .profile-header h1 {
+            font-family: "Changa", sans-serif;
+            font-size: 29px;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .profile-header p {
+            color: rgba(244, 251, 255, 0.84);
+            font-size: 15px;
+        }
+
+        .panel {
+            margin-top: 24px;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Changa", sans-serif;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #fefefe;
+        }
+
+        .panel-title i {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.14);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .contact-list,
+        .skills-list,
+        .license-list,
+        .languages-list {
+            list-style: none;
+        }
+
+        .contact-list li,
+        .languages-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 11px;
+            font-size: 14px;
+            color: rgba(244, 251, 255, 0.9);
+        }
+
+        .contact-list i {
+            color: #9ed8d1;
+            margin-top: 6px;
+            min-width: 14px;
+        }
+
+        .skills-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .skills-list li {
+            font-size: 13.5px;
+            color: rgba(250, 253, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 8px 12px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            transform: translateX(-5px);
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .license-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: rgba(244, 251, 255, 0.9);
+        }
+
+        .license-list i {
+            color: #99dbc2;
+            margin-left: 8px;
+        }
+
+        .main-content {
+            background: linear-gradient(180deg, #fffefb 0%, #fdfdfc 100%);
+            padding: 34px 34px 30px;
+            display: grid;
+            gap: 16px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 18px rgba(28, 55, 76, 0.08);
+            padding: 20px 22px;
+            animation: cardIn 0.75s ease both;
+        }
+
+        .content-card:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .content-card:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .section-title {
+            font-family: "Changa", sans-serif;
+            font-size: 22px;
+            color: var(--ink-900);
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(130deg, var(--teal-500), var(--gold-500));
+            box-shadow: 0 0 0 4px rgba(42, 128, 120, 0.14);
+        }
+
+        .summary-text {
+            color: var(--text-700);
+            font-size: 15.5px;
+        }
+
+        .highlights {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            background: var(--surface);
+            border: 1px solid rgba(42, 128, 120, 0.25);
+            color: #235e59;
+            font-size: 12.5px;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 6px 11px;
+        }
+
+        .experience-item h3 {
+            font-family: "Changa", sans-serif;
+            font-size: 23px;
+            color: var(--ink-900);
+            margin-bottom: 4px;
+        }
+
+        .company-name {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #6b7b88;
+            margin-bottom: 14px;
+            background: #f2f7f9;
+            border: 1px solid #d5e2e9;
+            border-radius: 999px;
+            padding: 4px 12px;
+        }
+
+        .experience-list {
+            list-style: none;
+        }
+
+        .experience-list li {
+            position: relative;
+            margin-bottom: 9px;
+            padding-right: 20px;
+            color: var(--text-700);
+            font-size: 15px;
+        }
+
+        .experience-list li::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal-500);
+            box-shadow: 0 0 0 4px rgba(42, 128, 120, 0.15);
+        }
+
+        .education-text {
+            color: var(--text-700);
+            font-size: 15.5px;
+        }
+
+        .education-text strong {
+            color: var(--ink-900);
+        }
+
+        .action-buttons {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .print-btn,
+        .lang-btn {
+            border: none;
+            border-radius: 999px;
+            padding: 11px 18px;
+            font-family: "Cairo", sans-serif;
+            font-weight: 700;
+            color: #fefefe;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 10px 22px rgba(20, 47, 66, 0.34);
+        }
+
+        .print-btn {
+            background: linear-gradient(120deg, var(--ink-900), var(--ink-700));
+        }
+
+        .lang-btn {
+            background: linear-gradient(120deg, #1d6f68, #44908a);
+        }
+
+        .print-btn:hover,
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(20, 47, 66, 0.36);
+        }
+
+        .print-btn i,
+        .lang-btn i {
+            margin-left: 7px;
+        }
+
+        html[dir="ltr"] .resume,
+        html[dir="ltr"] .sidebar,
+        html[dir="ltr"] .main-content {
+            direction: ltr;
+        }
+
+        html[dir="ltr"] .sidebar,
+        html[dir="ltr"] .main-content {
+            text-align: left;
+        }
+
+        html[dir="ltr"] .skills-list li:hover {
+            transform: translateX(5px);
+        }
+
+        html[dir="ltr"] .experience-list li {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+
+        html[dir="ltr"] .experience-list li::before {
+            right: auto;
+            left: 0;
+        }
+
+        html[dir="ltr"] .license-list i {
+            margin-left: 0;
+            margin-right: 8px;
+        }
+
+        html[dir="ltr"] .action-buttons {
+            left: auto;
+            right: 20px;
+        }
+
+        html[dir="ltr"] .print-btn i,
+        html[dir="ltr"] .lang-btn i {
+            margin-left: 0;
+            margin-right: 7px;
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .resume {
+                grid-template-columns: 1fr;
+                border-radius: 20px;
+            }
+
+            .sidebar {
+                padding: 28px 22px;
+            }
+
+            .main-content {
+                padding: 24px 20px 22px;
+            }
+
+            .profile-header h1 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 12px 10px 22px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .content-card {
+                padding: 16px 14px;
+            }
+
+            .action-buttons {
+                left: 12px;
+                bottom: 12px;
+                gap: 8px;
+            }
+
+            .print-btn,
+            .lang-btn {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+
+            html[dir="ltr"] .action-buttons {
+                left: auto;
+                right: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 11mm;
+        }
+
+        html, body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: linear-gradient(135deg, #e9f0f4 0%, #f7f5ee 100%) !important;
+            }
+
+            body::before,
+            body::after {
+                display: none !important;
+            }
+
+            .resume {
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                border: 1px solid #b7c6d0;
+                grid-template-columns: 300px 1fr;
+            }
+
+            .sidebar {
+                background: linear-gradient(160deg, var(--ink-900) 0%, var(--ink-800) 52%, var(--ink-700) 100%) !important;
+                color: #f4fbff !important;
+            }
+
+            .content-card {
+                box-shadow: none;
+                border: 1px solid #c7d4dc;
+            }
+
+            .content-card,
+            .panel,
+            .experience-item {
+                break-inside: avoid;
+            }
+
+            .action-buttons {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="resume">
+        <aside class="sidebar">
+            <header class="profile-header">
+                <span class="profile-tag" id="profile-tag">جاهز للفرص المناسبة</span>
+                <h1 id="profile-name">عبدالله سعيد المالكي</h1>
+                <p id="profile-role">مؤهل مسار إداري</p>
+            </header>
+
+            <section class="panel">
+                <h2 class="panel-title"><i class="fas fa-address-card"></i> <span id="contact-title">معلومات التواصل</span></h2>
+                <ul class="contact-list">
+                    <li><i class="fas fa-phone"></i><span id="contact-phone">0558450429</span></li>
+                    <li><i class="fas fa-envelope"></i><span id="contact-email">ms-abdullah@hotmail.com</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i><span id="contact-location">المملكة العربية السعودية</span></li>
+                </ul>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title"><i class="fas fa-tools"></i> <span id="skills-title">المهارات</span></h2>
+                <ul class="skills-list">
+                    <li id="skill-1">إلمام بإجراءات الدوائر الحكومية</li>
+                    <li id="skill-2">استخدام الحاسب الآلي وتوثيق البيانات</li>
+                    <li id="skill-3">دقة متابعة المعاملات الرسمية</li>
+                    <li id="skill-4">التخطيط للمسارات والتنقل الميداني</li>
+                    <li id="skill-5">مهارة التفاوض والتعامل المرن</li>
+                    <li id="skill-6">سرعة البديهة واتخاذ القرار</li>
+                </ul>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title"><i class="fas fa-id-card"></i> <span id="licenses-title">رخص القيادة</span></h2>
+                <ul class="license-list">
+                    <li><i class="fas fa-check-circle"></i><span id="license-1">رخصة قيادة خصوصي</span></li>
+                    <li><i class="fas fa-check-circle"></i><span id="license-2">رخصة قيادة نقل ثقيل</span></li>
+                    <li><i class="fas fa-check-circle"></i><span id="license-3">رخصة قيادة دراجة نارية</span></li>
+                </ul>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title"><i class="fas fa-language"></i> <span id="languages-title">اللغات</span></h2>
+                <ul class="languages-list">
+                    <li id="language-1">العربية: اللغة الأم</li>
+                    <li id="language-2">الإنجليزية: جيد</li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="main-content">
+            <section class="content-card">
+                <h2 class="section-title" id="summary-title">الملخص الشخصي</h2>
+                <p class="summary-text" id="summary-text">
+                    محترف ميداني بخبرة واسعة في التعاملات الإدارية والخدمية، يمتد عمرها لأكثر من سبع سنوات في التعقيب ومراجعة الجهات الحكومية. أتقن التنقل الذكي بين الأنظمة واللوائح، وأتمتع بخبرة عملية في تشغيل المركبات وتوثيق الإجراءات بكفاءة عالية.
+                </p>
+                <div class="highlights">
+                    <span class="chip" id="chip-1">خبرة ميدانية 7+ سنوات</span>
+                    <span class="chip" id="chip-2">التعامل مع الجهات الحكومية</span>
+                    <span class="chip" id="chip-3">سرعة إنجاز المعاملات</span>
+                </div>
+            </section>
+
+            <section class="content-card">
+                <h2 class="section-title" id="experience-title">الخبرات المهنية</h2>
+                <div class="experience-item">
+                    <h3 id="job-title">معقب إداري</h3>
+                    <span class="company-name" id="company-name">شركة العمودي | 7 سنوات</span>
+                    <ul class="experience-list">
+                        <li id="exp-1">تنفيذ وتسيير المعاملات لدى الجهات الرسمية بكفاءة وسرعة.</li>
+                        <li id="exp-2">المتابعة الدورية لحالة المعاملات وضمان إنجازها ضمن الإطار الزمني.</li>
+                        <li id="exp-3">تمثيل الشركة أمام الدوائر الحكومية بروح مهنية وانضباط إداري.</li>
+                        <li id="exp-4">توثيق العمليات الورقية والرقمية، والتنسيق المستمر مع الأقسام المعنية.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-card">
+                <h2 class="section-title" id="education-title">المؤهلات العلمية</h2>
+                <p class="education-text" id="education-text"><strong>الثانوية العامة</strong> - المسار الإداري</p>
+            </section>
+        </main>
+    </article>
+
+    <div class="action-buttons">
+        <button class="lang-btn" id="lang-btn" type="button" aria-label="التحويل إلى الإنجليزية">
+            <i class="fas fa-language"></i><span id="lang-btn-text">English</span>
+        </button>
+        <button class="print-btn" onclick="window.print()" type="button">
+            <i class="fas fa-print"></i><span id="print-btn-text">تحميل PDF</span>
+        </button>
+    </div>
+
+    <script>
+        (() => {
+            const translations = {
+                ar: {
+                    pageTitle: "السيرة الذاتية | عبدالله سعيد المالكي",
+                    profileTag: "جاهز للفرص المناسبة",
+                    profileName: "عبدالله سعيد المالكي",
+                    profileRole: "مؤهل مسار إداري",
+                    contactTitle: "معلومات التواصل",
+                    contactPhone: "0558450429",
+                    contactEmail: "ms-abdullah@hotmail.com",
+                    contactLocation: "المملكة العربية السعودية",
+                    skillsTitle: "المهارات",
+                    skill1: "إلمام بإجراءات الدوائر الحكومية",
+                    skill2: "استخدام الحاسب الآلي وتوثيق البيانات",
+                    skill3: "دقة متابعة المعاملات الرسمية",
+                    skill4: "التخطيط للمسارات والتنقل الميداني",
+                    skill5: "مهارة التفاوض والتعامل المرن",
+                    skill6: "سرعة البديهة واتخاذ القرار",
+                    licensesTitle: "رخص القيادة",
+                    license1: "رخصة قيادة خصوصي",
+                    license2: "رخصة قيادة نقل ثقيل",
+                    license3: "رخصة قيادة دراجة نارية",
+                    languagesTitle: "اللغات",
+                    language1: "العربية: اللغة الأم",
+                    language2: "الإنجليزية: جيد",
+                    summaryTitle: "الملخص الشخصي",
+                    summaryText: "محترف ميداني بخبرة واسعة في التعاملات الإدارية والخدمية، يمتد عمرها لأكثر من سبع سنوات في التعقيب ومراجعة الجهات الحكومية. أتقن التنقل الذكي بين الأنظمة واللوائح، وأتمتع بخبرة عملية في تشغيل المركبات وتوثيق الإجراءات بكفاءة عالية.",
+                    chip1: "خبرة ميدانية 7+ سنوات",
+                    chip2: "التعامل مع الجهات الحكومية",
+                    chip3: "سرعة إنجاز المعاملات",
+                    experienceTitle: "الخبرات المهنية",
+                    jobTitle: "معقب إداري",
+                    companyName: "شركة العمودي | 7 سنوات",
+                    exp1: "تنفيذ وتسيير المعاملات لدى الجهات الرسمية بكفاءة وسرعة.",
+                    exp2: "المتابعة الدورية لحالة المعاملات وضمان إنجازها ضمن الإطار الزمني.",
+                    exp3: "تمثيل الشركة أمام الدوائر الحكومية بروح مهنية وانضباط إداري.",
+                    exp4: "توثيق العمليات الورقية والرقمية، والتنسيق المستمر مع الأقسام المعنية.",
+                    educationTitle: "المؤهلات العلمية",
+                    educationText: "<strong>الثانوية العامة</strong> - المسار الإداري",
+                    printBtnText: "تحميل PDF",
+                    langButtonText: "English",
+                    langAria: "التحويل إلى الإنجليزية"
+                },
+                en: {
+                    pageTitle: "Curriculum Vitae | Abdullah Saeed Al-Malki",
+                    profileTag: "Available for Suitable Opportunities",
+                    profileName: "Abdullah Saeed Al-Malki",
+                    profileRole: "Administrative Track Graduate",
+                    contactTitle: "Contact Information",
+                    contactPhone: "0558450429",
+                    contactEmail: "ms-abdullah@hotmail.com",
+                    contactLocation: "Kingdom of Saudi Arabia",
+                    skillsTitle: "Skills",
+                    skill1: "Strong knowledge of government procedures",
+                    skill2: "Computer use and data documentation",
+                    skill3: "Accurate follow-up of official transactions",
+                    skill4: "Route planning and field mobility",
+                    skill5: "Negotiation and flexible communication",
+                    skill6: "Quick thinking and decision-making",
+                    licensesTitle: "Driving Licenses",
+                    license1: "Private Driving License",
+                    license2: "Heavy Transport Driving License",
+                    license3: "Motorcycle Driving License",
+                    languagesTitle: "Languages",
+                    language1: "Arabic: Native",
+                    language2: "English: Good",
+                    summaryTitle: "Professional Summary",
+                    summaryText: "A field professional with extensive experience in administrative and service operations, spanning more than seven years in document follow-up and government affairs. Skilled in navigating systems and regulations efficiently, with practical experience in vehicle operation and process documentation at a high standard.",
+                    chip1: "7+ Years Field Experience",
+                    chip2: "Government Liaison Expertise",
+                    chip3: "Fast Transaction Completion",
+                    experienceTitle: "Professional Experience",
+                    jobTitle: "Administrative Liaison Officer",
+                    companyName: "Al-Amoudi Company | 7 Years",
+                    exp1: "Executed and processed official transactions efficiently and promptly.",
+                    exp2: "Provided regular follow-up on transaction status and ensured completion within required timelines.",
+                    exp3: "Represented the company before government entities with professionalism and discipline.",
+                    exp4: "Documented paper and digital workflows while coordinating continuously with relevant departments.",
+                    educationTitle: "Education",
+                    educationText: "<strong>High School Diploma</strong> - Administrative Track",
+                    printBtnText: "Download PDF",
+                    langButtonText: "العربية",
+                    langAria: "Switch to Arabic"
+                }
+            };
+
+            const elements = {
+                profileTag: document.getElementById("profile-tag"),
+                profileName: document.getElementById("profile-name"),
+                profileRole: document.getElementById("profile-role"),
+                contactTitle: document.getElementById("contact-title"),
+                contactPhone: document.getElementById("contact-phone"),
+                contactEmail: document.getElementById("contact-email"),
+                contactLocation: document.getElementById("contact-location"),
+                skillsTitle: document.getElementById("skills-title"),
+                skill1: document.getElementById("skill-1"),
+                skill2: document.getElementById("skill-2"),
+                skill3: document.getElementById("skill-3"),
+                skill4: document.getElementById("skill-4"),
+                skill5: document.getElementById("skill-5"),
+                skill6: document.getElementById("skill-6"),
+                licensesTitle: document.getElementById("licenses-title"),
+                license1: document.getElementById("license-1"),
+                license2: document.getElementById("license-2"),
+                license3: document.getElementById("license-3"),
+                languagesTitle: document.getElementById("languages-title"),
+                language1: document.getElementById("language-1"),
+                language2: document.getElementById("language-2"),
+                summaryTitle: document.getElementById("summary-title"),
+                summaryText: document.getElementById("summary-text"),
+                chip1: document.getElementById("chip-1"),
+                chip2: document.getElementById("chip-2"),
+                chip3: document.getElementById("chip-3"),
+                experienceTitle: document.getElementById("experience-title"),
+                jobTitle: document.getElementById("job-title"),
+                companyName: document.getElementById("company-name"),
+                exp1: document.getElementById("exp-1"),
+                exp2: document.getElementById("exp-2"),
+                exp3: document.getElementById("exp-3"),
+                exp4: document.getElementById("exp-4"),
+                educationTitle: document.getElementById("education-title"),
+                educationText: document.getElementById("education-text"),
+                printBtnText: document.getElementById("print-btn-text"),
+                langBtnText: document.getElementById("lang-btn-text"),
+                langBtn: document.getElementById("lang-btn")
+            };
+
+            let currentLang = "ar";
+
+            const applyLanguage = (lang) => {
+                const t = translations[lang];
+                currentLang = lang;
+
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+                document.title = t.pageTitle;
+
+                elements.profileTag.textContent = t.profileTag;
+                elements.profileName.textContent = t.profileName;
+                elements.profileRole.textContent = t.profileRole;
+                elements.contactTitle.textContent = t.contactTitle;
+                elements.contactPhone.textContent = t.contactPhone;
+                elements.contactEmail.textContent = t.contactEmail;
+                elements.contactLocation.textContent = t.contactLocation;
+                elements.skillsTitle.textContent = t.skillsTitle;
+                elements.skill1.textContent = t.skill1;
+                elements.skill2.textContent = t.skill2;
+                elements.skill3.textContent = t.skill3;
+                elements.skill4.textContent = t.skill4;
+                elements.skill5.textContent = t.skill5;
+                elements.skill6.textContent = t.skill6;
+                elements.licensesTitle.textContent = t.licensesTitle;
+                elements.license1.textContent = t.license1;
+                elements.license2.textContent = t.license2;
+                elements.license3.textContent = t.license3;
+                elements.languagesTitle.textContent = t.languagesTitle;
+                elements.language1.textContent = t.language1;
+                elements.language2.textContent = t.language2;
+                elements.summaryTitle.textContent = t.summaryTitle;
+                elements.summaryText.textContent = t.summaryText;
+                elements.chip1.textContent = t.chip1;
+                elements.chip2.textContent = t.chip2;
+                elements.chip3.textContent = t.chip3;
+                elements.experienceTitle.textContent = t.experienceTitle;
+                elements.jobTitle.textContent = t.jobTitle;
+                elements.companyName.textContent = t.companyName;
+                elements.exp1.textContent = t.exp1;
+                elements.exp2.textContent = t.exp2;
+                elements.exp3.textContent = t.exp3;
+                elements.exp4.textContent = t.exp4;
+                elements.educationTitle.textContent = t.educationTitle;
+                elements.educationText.innerHTML = t.educationText;
+                elements.printBtnText.textContent = t.printBtnText;
+                elements.langBtnText.textContent = t.langButtonText;
+                elements.langBtn.setAttribute("aria-label", t.langAria);
+
+                localStorage.setItem("cv_lang", lang);
+            };
+
+            elements.langBtn.addEventListener("click", () => {
+                const nextLang = currentLang === "ar" ? "en" : "ar";
+                applyLanguage(nextLang);
+            });
+
+            const savedLanguage = localStorage.getItem("cv_lang");
+            if (savedLanguage === "en") {
+                applyLanguage("en");
+            } else {
+                applyLanguage("ar");
+            }
+        })();
+    </script>
+</body>
+</html>
